@@ -1,25 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function SessionSettingsForm() {
+  const [rosterSize, setRosterSize] = useState('');
+  const [numCoaches, setNumCoaches] = useState('');
+  const [ageCutoff, setAgeCutoff] = useState('');
+  const [accessCode, setAccessCode] = useState('');
+
   return (
     <div>
       <h2>Session Settings</h2>
       <form>
         <div>
           <label htmlFor="rosterSize">Roster Size:</label>
-          <input type="number" id="rosterSize" name="rosterSize" />
+          <input
+            type="number"
+            id="rosterSize"
+            name="rosterSize"
+            value={rosterSize}
+            onChange={(e) => setRosterSize(e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor="numCoaches">Number of Participating Coaches:</label>
-          <input type="number" id="numCoaches" name="numCoaches" />
+          <input
+            type="number"
+            id="numCoaches"
+            name="numCoaches"
+            value={numCoaches}
+            onChange={(e) => setNumCoaches(e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor="ageCutoff">Age Cutoff Date:</label>
-          <input type="date" id="ageCutoff" name="ageCutoff" />
+          <input
+            type="date"
+            id="ageCutoff"
+            name="ageCutoff"
+            value={ageCutoff}
+            onChange={(e) => setAgeCutoff(e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor="accessCode">Access Code (6-digit numeric):</label>
-          <input type="text" id="accessCode" name="accessCode" />
+          <input
+            type="text"
+            id="accessCode"
+            name="accessCode"
+            value={accessCode}
+            onChange={(e) => setAccessCode(e.target.value)}
+          />
         </div>
         <button type="submit">Save Settings</button>
       </form>
@@ -28,4 +57,5 @@ function SessionSettingsForm() {
 }
 
 export default SessionSettingsForm;
+
 
