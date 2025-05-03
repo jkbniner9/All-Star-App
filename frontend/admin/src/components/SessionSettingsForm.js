@@ -6,10 +6,21 @@ function SessionSettingsForm() {
   const [ageCutoff, setAgeCutoff] = useState('');
   const [accessCode, setAccessCode] = useState('');
 
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevents the default form submission behavior
+    console.log('Form data:', {
+      rosterSize,
+      numCoaches,
+      ageCutoff,
+      accessCode,
+    });
+    // In a real application, you would send this data to your backend
+  };
+
   return (
     <div>
       <h2>Session Settings</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="rosterSize">Roster Size:</label>
           <input
@@ -57,5 +68,3 @@ function SessionSettingsForm() {
 }
 
 export default SessionSettingsForm;
-
-
